@@ -1,1 +1,33 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GPT Live Co-Host</title><link rel="stylesheet" href="/styles.css"><script src="/app.js" defer></script></head><body><main><h1>GPT Live Co-Host</h1><p>Manual AI reply test console. Live integrations are not connected.</p><label for="message">Viewer message</label><textarea id="message" maxlength="1000" placeholder="Type a test chat message"></textarea><p id="count">0 / 1000</p><button id="generate">Generate reply</button><p id="error" hidden></p><h2>AI reply</h2><p id="reply">Your reply will appear here.</p><button id="speak">Play voice</button><button id="stop">Stop</button><button id="copy">Copy</button><p id="status">Checking server…</p><script>document.querySelector('#message').addEventListener('input',e=>document.querySelector('#count').textContent=e.target.value.length+' / 1000');</script></main></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090b10"><title>GPT Live Co-Host · $DAYONE</title>
+<link rel="stylesheet" href="/styles.css"><script src="/app.js" defer></script>
+</head>
+<body><main class="shell">
+<header class="hero">
+<div class="eyebrow"><span class="live-dot"></span> OPERATOR CONSOLE · POC</div>
+<h1>GPT Live <span>Co-Host</span></h1>
+<p class="sub">Your English-speaking sidekick for the $DAYONE / Devs In Hoodies stream.</p>
+<div class="notice"><strong>Test mode:</strong> live Pump.fun chat and livestream audio are not connected yet.</div>
+</header>
+<section class="card">
+<div class="section-heading"><div><p class="eyebrow">01 / INPUT</p><h2>What should the AI respond to?</h2></div><span class="pill" id="mic-state">MIC READY</span></div>
+<label for="mode">Message type</label>
+<select id="mode"><option value="viewer">Reply to a viewer</option><option value="instruction">Instruction from me (Malay or English)</option><option value="topic">Start a fresh topic for a quiet chat</option></select>
+<label for="message">Message / instruction</label>
+<textarea id="message" maxlength="1000" placeholder="Try: Bro, make a funny welcome for everyone joining the stream."></textarea>
+<div class="input-meta"><span id="count">0 / 1000</span><span>Tip: Malay instructions are okay.</span></div>
+<div class="actions"><button id="mic" class="button secondary" type="button">🎙️ Speak in Malay</button><button id="generate" class="button primary" type="button">Generate reply ↗</button></div>
+<p id="mic-help" class="help">Microphone input depends on browser support and microphone permission.</p><p id="error" class="error" role="alert" hidden></p>
+</section>
+<section class="card output-card">
+<div class="section-heading"><div><p class="eyebrow">02 / AI CO-HOST</p><h2>Ready to say out loud</h2></div><span class="pill" id="reply-state">WAITING</span></div>
+<div id="reply" class="reply" aria-live="polite">Your AI co-host's reply will appear here.</div>
+<div class="actions"><button id="speak" class="button primary" type="button">🔊 Play English voice</button><button id="stop" class="button secondary" type="button">Stop</button><button id="copy" class="button secondary" type="button">Copy text</button></div>
+<p class="help">The voice currently plays in this browser. It is not automatically sent into Pump.fun livestream audio.</p>
+</section>
+<section class="status-row"><div><span class="status-light" id="server-light"></span><span id="status">Checking server…</span></div><div id="ai-state">Checking AI</div></section>
+<footer><span>$DAYONE · Devs In Hoodies</span><span>POC build · No wallet connection required</span></footer>
+</main></body></html>
